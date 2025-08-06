@@ -1,13 +1,32 @@
-.venv/
+# Python bytecode and cache
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.pytest_cache/
+
+# Pytest cache
+.pytest_cache/
 *.coverage
+
+# Packaging
 *.egg-info/
 dist/
 build/
+
+# Virtual environments and environment variables
+.venv/
 .env
+.tox/
+
+# Project output and drafts
 output/
 drafts/
+
+# VS Code settings
+.vscode/
+
+# Notes and text files
+*.txt
+
+# Configuration files
+*.ini
