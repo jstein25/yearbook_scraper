@@ -13,7 +13,7 @@ def test_search_text_pdf(pdf_with_text, tmp_path):
     with open(output_pdf, "wb") as f:
         writer.write(f)
     reader = PdfReader(output_pdf)
-    assert len(reader.pages) == 2
+    assert len(reader.pages) == 3
     content = "".join(
         page.extract_text() or ""
         for page in reader.pages

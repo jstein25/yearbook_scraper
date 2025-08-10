@@ -64,7 +64,8 @@ def test_get_english_table_list_stops_after_xx(monkeypatch):
     assert result == [
         "English Table 1",
         "English Table 2",
-        "XX Table List End Marker"
+        "XX Table List End Marker",
+        "Body page"
     ]
 
 
@@ -78,6 +79,6 @@ def test_search_table_list_found_full_page(monkeypatch):
     monkeypatch.setattr(tbl, "extract_first_n_images", lambda pdf, n: [DummyImage(table_list_text)])
     monkeypatch.setattr(tbl, "get_table_list_start_page", lambda images: 0)
     monkeypatch.setattr(tbl, "get_english_table_list", lambda images, start: [table_list_text])
-    monkeypatch.setattr(tbl, "get_first_num_after_query", lambda text, query: 2020 if query == "GDP" else 23 if query == "Population" else 45 if query == "Unemployment" else None)
+    monkeypatch.setattr(tbl, "get_page_nums_near_query", lambda text, query: 2020 if query == "GDP" else 23 if query == "Population" else 45 if query == "Unemployment" else None)
     result = tbl.search_table_list("dummy.pdf", "GDP")
     assert result is not None  # or assert result == expected_page_number
