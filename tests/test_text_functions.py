@@ -20,6 +20,11 @@ def test_scanned_pdf_has_no_text(scanned_pdf):
     assert not text.pdf_has_text(scanned_pdf)
 
 
+def test_yearbook_is_scanned():
+    yearbook_path = RESOURCE_ROOT / "1966-education-yearbook.pdf"
+    assert not text.pdf_has_text(yearbook_path)
+
+
 @pytest.mark.parametrize(
     "query,expected",
     [

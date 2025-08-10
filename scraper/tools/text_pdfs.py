@@ -6,7 +6,7 @@ to search via this text handler (get_page_nums_from_query_text) or via ocr.
 from pypdf import PdfReader
 
 
-def pdf_has_text(pdf_path):
+def pdf_has_text(pdf_path, max_pages=30):
     """Check if pdf has extractable text.
 
     Returns true if pdf contains text.
@@ -14,6 +14,7 @@ def pdf_has_text(pdf_path):
 
     Args:
         pdf_path: path to pdf.
+        max_pages: max num of pages to scan to improve efficiency.
 
     Returns:
         Boolean whether pdf has text.
@@ -24,8 +25,10 @@ def pdf_has_text(pdf_path):
     """
     reader = PdfReader(pdf_path)
     text = ""
-    for page in reader.pages:
-        text += page.extract_text()
+    for page in reader.pages[:max_pages]:
+        page_text = page.extract_text()
+        if page_text:
+            text += page_text
     return bool(text)
 
 
