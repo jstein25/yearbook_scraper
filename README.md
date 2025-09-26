@@ -7,6 +7,7 @@ Notes on use:
     - Queries should be provided based on the full or shortened table name.
 
     - **Make sure to set the input and output directories via environment variables before using.**
+    TO RUN: run directory_scraper.py or file_scraper.py as module
 
 Operation flow is as follows:
     1. User enters command/runs program.

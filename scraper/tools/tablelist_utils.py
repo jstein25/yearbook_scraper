@@ -48,7 +48,7 @@ def search_table_list(pdf_path, query):
     table_list = get_english_table_list(images, start_page)
     for text in table_list:
         if query.lower() in text.lower():
-            print(f"[DEBUG] query found in text: {text}")
+            # print(f"[DEBUG] query found in text: {text}")
             written_page = get_page_nums_near_query(text, query)
             print(f"[DEBUG] Written page: {written_page}")
             if written_page is not None:
