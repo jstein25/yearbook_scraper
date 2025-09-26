@@ -110,8 +110,8 @@ def main(pdf_path, query, verbose=True):
     
     Returns:
         Pages from search as PdfWriter instance.
-        If # of matches > 2, return only after the 2nd match.
     """
+
     if verbose:
         print(f"PROCESSING: {pdf_path.name}")
         print("Attempting to extract text...")
@@ -234,9 +234,6 @@ def get_page_nums_from_query_ocr(pdf_path, query, start, end):
 
 # tools.pdf_page_utils.py ------------------------------
 """File for getting page objects.
-
-Connects page numbers to the actual page objects
-they're connected to for writing new, shortened pdfs.
 """
 from typing import List
 from pypdf import PdfReader, PdfWriter
